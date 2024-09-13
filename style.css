@@ -1,0 +1,194 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #ffcc00; /* Dark Blue */
+    color: #0077ff;
+    padding: 1em;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.logo {
+    height: 50px; /* Adjust as needed */
+    vertical-align: middle;
+}
+
+h1 {
+    margin: 0;
+}
+
+/* Product Image Styles */
+.product-image {
+    max-width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 1em;
+    border-radius: 10px;
+}
+
+.product {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1em;
+    text-align: center;
+    width: 200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em;
+    max-width: 1200px; /* Maximum width for larger screens */
+    width: 100%; /* Full width within max-width */
+}
+
+.product h2 {
+    margin: 0;
+    color: #0044cc; /* Dark Blue */
+}
+
+.product p {
+    margin: 0.5em 0;
+    color: #333;
+}
+
+.product button {
+    background-color: #ffcc00; /* Yellow */
+    border: none;
+    color: #0033aa; /* Blue */
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.product button:hover {
+    background-color: #e6b800; /* Darker Yellow */
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .product-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product {
+        width: 90%;
+        max-width: 300px;
+    }
+}
+
+
+/* Additional styles for cart page */
+.back-link {
+    color: white;
+    text-decoration: none;
+    background: #007bff;
+    padding: 0.5em;
+    border-radius: 5px;
+    margin: 1em;
+    display: inline-block;
+}
+
+.back-link:hover {
+    background: #1068c7;
+}
+
+.cart-items {
+    margin: 1em;
+}
+
+.cart-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 1em;
+    padding: 1em;
+}
+
+.cart-link {
+    color: #ffcc00; /* Yellow */
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #1649be; /* Slightly different Blue */
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cart-link:hover {
+    background-color: #2050b1; /* Darker Blue */
+    color: #ffffff; /* White text on hover for better contrast */
+}
+
+.cart-link span {
+    font-weight: normal; /* Optional: Make the item count less prominent */
+}
+
+footer {
+    background-color: #1f46a0; /* Slightly Different Blue */
+    color: #ffffff;
+    text-align: center;
+    padding: 1em 2%; /* Adjust padding for smaller screens */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Ensure padding is included in total width/height */
+}
+
+.footer-content {
+    max-width: 1000px; /* Adjust max-width to be more flexible */
+    margin: 0 auto;
+    padding: 0 1em; /* Add some padding on the sides for smaller screens */
+    box-sizing: border-box; /* Include padding in the total width */
+}
+
+footer p {
+    margin: 0;
+    font-size: 1em; /* Ensure font size is scalable */
+}
+
+footer a {
+    color: #ffcc00; /* Yellow */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Media Query for tablets and small screens */
+@media (max-width: 768px) {
+    footer {
+        padding: 1em 1%; /* Adjust padding for smaller screens */
+    }
+
+    .footer-content {
+        padding: 0; /* Remove side padding */
+    }
+}
+
+/* Media Query for mobile phones */
+@media (max-width: 480px) {
+    footer {
+        padding: 0.5em 1%; /* Even smaller padding for mobile */
+    }
+
+    footer p {
+        font-size: 0.9em; /* Slightly smaller font size for mobile */
+    }
+}

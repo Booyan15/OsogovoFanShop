@@ -1,0 +1,210 @@
+/* Base Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    
+}
+
+header {
+    background: #ffcc00;
+    color: #0077ff;
+    padding: 1em;
+    text-align: center;
+    position: sticky;
+    top: 0;
+}
+
+header h1 {
+    margin: 0;
+}
+
+.back-link {
+    color: white;
+    text-decoration: none;
+    background: #0077ff;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    margin: 1em 0;
+    display: inline-block;
+}
+
+.back-link:hover {
+    background: #0077ff;
+}
+
+main {
+    padding: 2em;
+}
+
+.cart-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5em;
+}
+
+.cart-items {
+    margin-bottom: 2em;
+}
+
+.cart-item {
+    padding: 1em 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item:last-child {
+    border-bottom: none;
+}
+
+.cart-item h2 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.cart-item p {
+    margin: 0;
+    color: #555;
+}
+
+.cart-summary {
+    font-size: 1.2em;
+}
+
+.cart-summary h2 {
+    margin: 0;
+}
+
+.cart-summary .total-price {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Button styles */
+.buy-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 0.75em 1.5em;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 1em;
+}
+
+.buy-btn:hover {
+    background: #218838;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .cart-item {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cart-item p {
+        margin-top: 0.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .cart-container {
+        padding: 1em;
+    }
+
+    .buy-btn {
+        width: 100%;
+        padding: 1em;
+        font-size: 1.1em;
+    }
+}
+
+/* Additional styles for remove button */
+.remove-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.remove-btn:hover {
+    background: #c82333;
+}
+
+
+
+/* Input Groups */
+.input-group {
+    margin-bottom: 15px;
+    position: relative;
+}
+
+input {
+    width: 80%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #fafafa;
+    transition: border-color 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #3498db;
+    background-color: #fff;
+}
+
+/* Placeholder Styles */
+input::placeholder {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+/* Submit Button */
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #e4e131;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #ece92c;
+    transform: translateY(-2px);
+}
+
+/* Responsive Adjustments for Mobile Devices */
+@media (max-width: 600px) {
+    .form-container {
+        padding: 10px;  /* Less padding for smaller screens */
+    }
+
+    input, .submit-btn {
+        font-size: 1rem;
+        padding: 12px; /* Reduce padding for smaller screens */
+    }
+
+    input {
+        margin-bottom: 10px; /* Ensure spacing between input fields */
+    }
+
+    .submit-btn {
+        padding: 14px; /* Slightly bigger button for touch screens */
+    }
+}
