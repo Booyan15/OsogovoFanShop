@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCart();
         
         // Optionally redirect to a confirmation or checkout page
-        alert("Ти благодарам за нарачката, сега твојата кошнича е празна.");
+        alert("Ти благодарам за нарачката, сега твојата кошничка е празна.");
     };
 
     updateCart();
