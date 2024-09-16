@@ -3,19 +3,26 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
+    padding-top: 80px; /* Adjust based on the height of your header */
+
 }
 
 header {
-    background-color: #ffcc00; /* Dark Blue */
+    background-color: #ffcc00; /* Yellow */
     color: #0077ff;
     padding: 1em;
     text-align: center;
-    position: sticky;
-    top: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1em;
+
+    /* Fix the navbar at the top */
+    position: fixed;
+    top: 0;
+    width: 100%; /* Ensure it stretches across the screen */
+    z-index: 1000; /* High z-index to stay above other elements */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: add a shadow for visual separation */
 }
 
 .logo {
@@ -27,7 +34,6 @@ h1 {
     margin: 0;
 }
 
-/* Product Image Styles */
 .product-image {
     max-width: 100%;
     height: auto;
@@ -45,6 +51,7 @@ h1 {
     width: 200px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 .product-container {
     display: flex;
     flex-wrap: wrap;
@@ -52,11 +59,14 @@ h1 {
     gap: 1em;
     max-width: 1200px; /* Maximum width for larger screens */
     width: 100%; /* Full width within max-width */
+    margin: 0 auto; /* Center the container */
+    padding-left: 50px; /* Add some space to the left */
 }
 
 .product h2 {
     margin: 0;
     color: #0044cc; /* Dark Blue */
+    text-align: center;
 }
 
 .product p {
@@ -78,63 +88,50 @@ h1 {
     background-color: #e6b800; /* Darker Yellow */
 }
 
-/* Responsive Styles */
+/* Mobile Styles */
 @media (max-width: 768px) {
     .product-container {
         flex-direction: column;
         align-items: center;
+        padding-left: 0; /* Remove left padding on mobile */
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); /* 2 items per row */
+        gap: 10px; /* Adjust the gap between items */
     }
 
     .product {
         width: 90%;
         max-width: 300px;
+        padding: 0.5em; /* Reduce padding to make the products smaller */
+    }
+
+    .product-image {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5px; /* Smaller border radius */
+    }
+
+    .product h2 {
+        font-size: 1em; /* Smaller font size */
+    }
+
+    .product p {
+        font-size: 0.9em; /* Smaller font size for price */
+    }
+
+    .product button {
+        font-size: 0.9em; /* Smaller button text */
+        padding: 0.3em 0.8em; /* Smaller button padding */
     }
 }
 
-
-/* Additional styles for cart page */
-.back-link {
-    color: white;
-    text-decoration: none;
-    background: #007bff;
-    padding: 0.5em;
-    border-radius: 5px;
-    margin: 1em;
-    display: inline-block;
+.collection-section {
+    margin-bottom: 50px;
 }
 
-.back-link:hover {
-    background: #1068c7;
-}
-
-.cart-items {
-    margin: 1em;
-}
-
-.cart-item {
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    margin-bottom: 1em;
-    padding: 1em;
-}
-
-.cart-link {
-    color: #ffcc00; /* Yellow */
-    text-decoration: none;
-    font-weight: bold;
-    background-color: #1649be; /* Slightly different Blue */
-    padding: 0.5em 1em;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.cart-link:hover {
-    background-color: #2050b1; /* Darker Blue */
-    color: #ffffff; /* White text on hover for better contrast */
-}
-
-.cart-link span {
-    font-weight: normal; /* Optional: Make the item count less prominent */
+.collection-section h2 {
+    text-align: center;
+    margin-bottom: 20px;
 }
 
 footer {
@@ -190,5 +187,90 @@ footer a:hover {
 
     footer p {
         font-size: 0.9em; /* Slightly smaller font size for mobile */
+    }
+}
+
+.cart-link {
+    color: #ffcc00; /* Yellow */
+    text-decoration: none;
+    font-weight: bold;
+    background-color: #1649be; /* Slightly different Blue */
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cart-link:hover {
+    background-color: #2050b1; /* Darker Blue */
+    color: #ffffff; /* White text on hover for better contrast */
+}
+
+.cart-link span {
+    font-weight: normal; /* Optional: Make the item count less prominent */
+}
+
+/* Hero Section */
+.hero {
+    position: relative;
+    background-image: url('img/HERO.jpg'); /* Path to your hero image */
+    background-size: cover; /* Ensure the image covers the entire section */
+    background-position: center; /* Center the image */
+    height: 120vh; /* Hero section height - adjust as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white; /* Text color */
+    text-align: center;
+    
+    
+}
+
+.hero-text {
+    position: relative;
+    z-index: 1; /* Ensure text is above the image */
+    max-width: 80%; /* Restrict the text width */
+    padding: 1em;
+    border-radius: 10px; /* Rounded corners */
+}
+
+.hero h1 {
+    font-size: 3em;
+    margin-bottom: 0.5em;
+    color: #ffcc00;
+}
+
+.hero p {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    color: #ffcc00;
+}
+
+.hero-button {
+    background-color: #ffcc00; /* Button background color */
+    color: #0033aa; /* Button text color */
+    padding: 0.8em 1.5em;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.hero-button:hover {
+    background-color: #e6b800; /* Darker yellow on hover */
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+    }
+
+    .hero-button {
+        font-size: 1em;
+        padding: 0.5em 1em;
     }
 }

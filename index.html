@@ -12,90 +12,143 @@
         <img src="img/logo.png" alt="Company Logo" class="logo">
         <a href="cart.html" class="cart-link">Кошнича: <span id="cart-count">0</span> продукти</a>
     </header>
-<br><br>
-    <main>
-        <div class="product-container">
-            <div class="product" data-name="ШАЛ" data-price="600" data-image="ШАЛ">
-                <img src="img/proizvodi/shalovi.jpg" alt="ШАЛ" class="product-image">
-                <h2>ШАЛ</h2>
-                <p>Цнеа: 600мкд</p>
-                <button onclick="addToCart(this)">Додади во кошница</button>
-            </div>
 
-            <div class="product" data-name="Дрес жолт" data-price="1500" data-image="жолт">
-                <img src="img/proizvodi/dreszolt.jpg" alt="ДРЕС ЖОЛТ" class="product-image">
-                <h2>Дрес жолт</h2>
-                <p>Цена: 1500 мкд</p>
-                <button onclick="addToCart(this)">Додади во кошница</button>
-            </div>
+    <br><br>
 
-            <div class="product" data-name="Сезонски билет" data-price="1000" data-image="билет">
-                <img src="img/proizvodi/sezonska.jpg" alt="СЕЗОНСКИ БИЛЕТ" class="product-image">
-                <h2>Сезонски билет</h2>
-                <p>Цена: 1000 мкд</p>
-                <button onclick="addToCart(this)">Додади во кошница</button>
-            </div>
-            
-            <div class="product" data-name="Цветна блуза 1924" data-price="1000" data-image="Цветна блуза 1924">
-                <img src="img/proizvodi/1 berni.jpg" alt="Цветна блуза 1924" class="product-image">
-                <h2>Цветна блуза 1924</h2>
-                <p>Цена: 1000 мкд</p>
-                <button onclick="addToCart(this)">Додади во кошница</button>
-            </div>
-
-            <div class="product" data-name="Дуксер 1924" data-price="1000" data-image="Дуксер црн 1924">
-                <img src="img/proizvodi/2 berni.jpg" alt="Дуксер црн 1924" class="product-image">
-                <h2>Дуксер црн 1924</h2>
-                <p>Цена: 1000 мкд</p>
-                <button onclick="addToCart(this)">Додади во кошница</button>
-            </div>
-
-            <div class="product" data-name="Дуксер АВАНТИ" data-price="1000" data-image="Дуксер АВАНТИ">
-                <img src="img/proizvodi/3 berni.jpg" alt="Дуксер АВАНТИ" class="product-image">
-                <h2>Дуксер АВАНТИ</h2>
-                <p>Цена: 1000 мкд</p>
-                <button onclick="addToCart(this)">Додади во кошница</button>
-            </div>
-
-            <div class="product" data-name="Блуза 1924 плава" data-price="1000" data-image="Блуза 1924 плава">
-                <img src="img/proizvodi/4 berni.jpg" alt="Блуза 1924 плава" class="product-image">
-                <h2>Блуза 1924 плава</h2>
-                <p>Цена: 1000 мкд</p>
-                <button onclick="addToCart(this)">Додади во кошница</button>
-            </div>
-
-            <div class="product" data-name="Поло блуза" data-price="1000" data-image="Поло блуза">
-                <img src="img/proizvodi/5 berni.jpg" alt="Поло блуза" class="product-image">
-                <h2>Поло блуза</h2>
-                <p>Цена: 1000 мкд</p>
-                <button onclick="addToCart(this)">Додади во кошница</button>
-            </div>
-
-            <div class="product" data-name="Дуксер црно-златно 1924" data-price="1000" data-image="Дуксер црно-златно 1924">
-                <img src="img/proizvodi/6 berni.jpg" alt="Дуксер црно-златно 1924" class="product-image">
-                <h2>Дуксер црно-златно 1924</h2>
-                <p>Цена: 1000 мкд</p>
-                <button onclick="addToCart(this)">Додади во кошница</button>
-            </div>
-
-            <div class="product" data-name="Блуза АВАНТИ црна" data-price="1000" data-image="Блуза АВАНТИ црна">
-                <img src="img/proizvodi/8 berni.jpg" alt="Блуза АВАНТИ црна" class="product-image">
-                <h2>Блуза АВАНТИ црна</h2>
-                <p>Цена: 1000 мкд</p>
-                <button onclick="addToCart(this)">Додади во кошница</button>
-            </div>
-
-            <div class="product" data-name="Костим Осогово" data-price="1000" data-image="Костим Осогово">
-                <img src="img/proizvodi/7 berni.jpg" alt="Костим Осогово" class="product-image">
-                <h2>Костим Осогово</h2>
-                <p>Цена: 1000 мкд</p>
-                <button onclick="addToCart(this)">Додади во кошница</button>
-            </div>
-
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Welcome to Our Fan Shop</h1>
+            <p>Explore the latest collections and exclusive items!</p>
         </div>
+    </section>
+    
+
+    <main>
+        <!-- Summer Collection Section -->
+        <section class="collection-section">
+            <h2>Летна Колекција</h2>
+            <div class="product-container">
+                <!-- Summer Products -->
+                <div class="product" data-name="Блуза бела(мече аванти)" data-price="1500" data-image="Блуза бела(мече аванти)">
+                    <img src="img/proizvodi/avantitemna.jpg" alt="Блуза бела(мече аванти)" class="product-image">
+                    <h2>Блуза бела(мече аванти)</h2>
+                    <p>Цена: 1500 мкд</p>
+                    <button onclick="addToCart(this)">Додади во кошница</button>
+                </div>
+
+                <div class="product" data-name="Блуза бела(мече 1924)" data-price="1500" data-image="Блуза бела(мече 1924)">
+                    <img src="img/proizvodi/1924bela.jpg" alt="Блуза бела(мече 1924)" class="product-image">
+                    <h2>Блуза бела(мече 1924)</h2>
+                    <p>Цена: 1500 мкд</p>
+                    <button onclick="addToCart(this)">Додади во кошница</button>
+                </div>
+
+                <div class="product" data-name="Блуза бела(мече 1924)" data-price="1500" data-image="Блуза бела(мече 1924)">
+                    <img src="img/proizvodi/crnazoltomece.jpg" alt="Блуза бела(мече 1924)" class="product-image">
+                    <h2>Блуза црна(мече аванти)</h2>
+                    <p>Цена: 1500 мкд</p>
+                    <button onclick="addToCart(this)">Додади во кошница</button>
+                </div>
+
+                <div class="product" data-name="Блуза бела(мече жолта аванти)" data-price="1500" data-image="Блуза бела(мече жолта аванти)">
+                    <img src="img/proizvodi/belavantimece.jpg" alt="Блуза бела(мече жолта аванти)" class="product-image">
+                    <h2>Блуза бела(мече жолта аванти)</h2>
+                    <p>Цена: 1500 мкд</p>
+                    <button onclick="addToCart(this)">Додади во кошница</button>
+                </div>
+
+                <div class="product" data-name="Блуза бела 1924" data-price="1500" data-image="Блуза бела 1924">
+                    <img src="img/proizvodi/bela1924.jpg" alt="Блуза бела 1924" class="product-image">
+                    <h2>Блуза бела 1924</h2>
+                    <p>Цена: 1500 мкд</p>
+                    <button onclick="addToCart(this)">Додади во кошница</button>
+                </div>
+
+                <div class="product" data-name="Блуза плава 1924" data-price="1500" data-image="Блуза плава 1924">
+                    <img src="img/proizvodi/temna1924.jpg" alt="Блуза плава 1924" class="product-image">
+                    <h2>Блуза плава 1924</h2>
+                    <p>Цена: 1500 мкд</p>
+                    <button onclick="addToCart(this)">Додади во кошница</button>
+                </div>
+
+                <div class="product" data-name="Блуза жолта 1924" data-price="1500" data-image="Блуза жолта 1924">
+                    <img src="img/proizvodi/zolta1924.jpg" alt="Блуза жолта 1924" class="product-image">
+                    <h2>Блуза жолта 1924</h2>
+                    <p>Цена: 1500 мкд</p>
+                    <button onclick="addToCart(this)">Додади во кошница</button>
+                </div>
+
+                <div class="product" data-name="Блуза жолта 1924" data-price="1500" data-image="Блуза жолта 1924">
+                    <img src="img/proizvodi/temaavanti.jpg" alt="Блуза жолта 1924" class="product-image">
+                    <h2>Блуза црна(мече со црн дуксер аванти)</h2>
+                    <p>Цена: 1500 мкд</p>
+                    <button onclick="addToCart(this)">Додади во кошница</button>
+                </div>
+                <!-- Add more summer items here -->
+            </div>
+        </section>
+
+        <!-- Winter Collection Section -->
+        <section class="collection-section">
+            <h2>Зимска Колекција</h2>
+            <div class="product-container">
+                <!-- Winter Products -->
+                <div class="product" data-name="Дуксер бел" data-price="1000" data-image="Дуксер бел">
+                    <img src="img/proizvodi/dukser bel.jpg" alt="Дуксер бел" class="product-image">
+                    <h2>Дуксер бел</h2>
+                    <p>Цена: 1000 мкд</p>
+                    <button onclick="addToCart(this)">Додади во кошница</button>
+                </div>
+
+                <div class="product" data-name="Дуксер темно плав" data-price="1000" data-image="Дуксер темно плав">
+                    <img src="img/proizvodi/duksertemen.jpg" alt="Дуксер темно плав" class="product-image">
+                    <h2>Дуксер темно плав</h2>
+                    <p>Цена: 1000 мкд</p>
+                    <button onclick="addToCart(this)">Додади во кошница</button>
+                </div>
+                <!-- Add more winter items here -->
+            </div>
+        </section>
+
+        <!-- Accessories Section -->
+        <section class="collection-section">
+            <h2>Аксесоари</h2>
+            <div class="product-container">
+                <!-- Accessories -->
+                <div class="product" data-name="ШАЛ" data-price="600" data-image="ШАЛ">
+                    <img src="img/proizvodi/shal.jpg" alt="ШАЛ" class="product-image">
+                    <h2>ШАЛ</h2>
+                    <p>Цена: 600мкд</p>
+                    <button onclick="addToCart(this)">Додади во кошница</button>
+                </div>
+
+                <div class="product" data-name="Сезонски билет" data-price="1000" data-image="билет">
+                    <img src="img/proizvodi/sezonska.jpg" alt="СЕЗОНСКИ БИЛЕТ" class="product-image">
+                    <h2>Сезонски билет</h2>
+                    <p>Цена: 1000 мкд</p>
+                    <button onclick="addToCart(this)">Додади во кошница</button>
+                </div>
+
+                <div class="product" data-name="Дрес жолт" data-price="1500" data-image="жолт">
+                    <img src="img/proizvodi/dreszolt.jpg" alt="ДРЕС ЖОЛТ" class="product-image">
+                    <h2>Дрес жолт</h2>
+                    <p>Цена: 1500 мкд</p>
+                    <button onclick="addToCart(this)">Додади во кошница</button>
+                </div>
+
+                <div class="product" data-name="Магнет со отварач" data-price="1500" data-image="жолт">
+                    <img src="img/proizvodi/otvarac.jpg" alt="Магнет со отварач" class="product-image">
+                    <h2>Магнет со отварач</h2>
+                    <p>Цена: 1500 мкд</p>
+                    <button onclick="addToCart(this)">Додади во кошница</button>
+                </div>
+                <!-- Add more accessories here -->
+            </div>
+        </section>
     </main>
 
     <script src="script.js"></script>
+
     <br><br><br>
 
     <footer>
