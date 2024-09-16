@@ -223,7 +223,7 @@ input::placeholder {
 }
 
 .quantity-btn {
-    background-color: #15b307;
+    background-color: #a9aca8;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
@@ -231,7 +231,7 @@ input::placeholder {
 }
 
 .quantity-btn:hover {
-    background-color: #18920c;
+    background-color: #979b96;
     transition: all 0.3s ease;
 }
 
