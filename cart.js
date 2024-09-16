@@ -21,9 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div>
                         <h2>${item.name}</h2>
                         <p>Цена: ${item.price.toFixed()} мкд</p>
-                        <p>Бројки на нарачани производи: ${item.quantity}</p>
+                        <div class="quantity-controls">
+                            <button class="quantity-btn" onclick="updateQuantity(${index}, -1)">-</button>
+                            <input type="text" class="quantity-input" value="${item.quantity}" readonly>
+                            <button class="quantity-btn" onclick="updateQuantity(${index}, 1)">+</button>
+                        </div>
+                        <p>Вкупно: ${itemTotal.toFixed()} мкд</p>
                     </div>
-                    <p>Вкупно: ${itemTotal.toFixed()} мкд</p> <br>
                     <button class="remove-btn" onclick="removeFromCart(${index})">Избриши</button>
                 `;
                 cartItemsContainer.appendChild(itemElement);
@@ -42,6 +46,14 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCart();
     };
 
+    window.updateQuantity = function(index, change) {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let item = cart[index];
+        item.quantity = Math.max(1, item.quantity + change); // Ensure quantity is at least 1
+        localStorage.setItem('cart', JSON.stringify(cart));
+        updateCart();
+    };
+
     window.proceedToCheckout = function() {
         // Clear the cart
         localStorage.removeItem('cart');
@@ -56,7 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCart();
 });
 
-// Select the form and form fields
 const form = document.getElementById('checkout-form');
 const fullName = document.getElementById("name");
 const phone = document.getElementById("phone");
@@ -64,7 +75,6 @@ const email = document.getElementById("email");
 const city = document.getElementById("city");
 
 function sendEmail() {
-    // Fetch cart data
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     let cartDetails = cart.length > 0 ? '' : 'Твојата кошничка е празна.<br>';
 
@@ -80,7 +90,6 @@ function sendEmail() {
         `;
     });
 
-    // Create the email body message with cart details
     const bodyMessage = `
         Име и презиме: ${fullName.value}<br>
         Телефонски број: ${phone.value}<br>
@@ -91,14 +100,13 @@ function sendEmail() {
         ${cartDetails}
     `;
 
-    // Send email using SMTP.js
     Email.send({
         Host: "smtp.elasticemail.com",
         Username: "osogovoporacki@gmail.com",
         Password: "2A38F0EF3FB0948E8191C7D14369F8E013C1",
         To: 'osogovoporacki@gmail.com',
         From: "osogovoporacki@gmail.com",
-        Subject: `Нарачка од ${fullName.value}`,  // Subject with customer name
+        Subject: `Нарачка од ${fullName.value}`,
         Body: bodyMessage
     }).then(
         message => {
@@ -109,12 +117,10 @@ function sendEmail() {
                     icon: "success"
                 });
 
-                // Reset form and cart after successful submission
                 form.reset();
-                localStorage.removeItem('cart'); // Clear the cart after sending the order
-                updateCart(); // Update cart display
+                localStorage.removeItem('cart');
+                updateCart();
             } else {
-                // Handle errors
                 Swal.fire({
                     title: "Грешка",
                     text: "Имаше проблем порачката е неуспешна. Обиди се повторно.",
@@ -125,8 +131,7 @@ function sendEmail() {
     );
 }
 
-// Add event listener for form submission
 form.addEventListener("submit", function(e) {
-    e.preventDefault();  // Prevent the default form submission behavior
-    sendEmail();  // Call the function to send the email
+    e.preventDefault();
+    sendEmail();
 });
