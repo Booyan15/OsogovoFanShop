@@ -74,6 +74,12 @@ const phone = document.getElementById("phone");
 const email = document.getElementById("email");
 const city = document.getElementById("city");
 
+function validatePhoneNumber(number) {
+    // This regular expression checks for a 9-digit number
+    const phonePattern = /^\d{9}$/;
+    return phonePattern.test(number);
+}
+
 function sendEmail() {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     let cartDetails = cart.length > 0 ? '' : 'Твојата кошничка е празна.<br>';
@@ -99,6 +105,16 @@ function sendEmail() {
         <h3>Детали за нарачка:</h3>
         ${cartDetails}
     `;
+
+    // Validate phone number before sending
+    if (!validatePhoneNumber(phone.value)) {
+        Swal.fire({
+            title: "Грешка",
+            text: "Телефонскиот број мора да содржи точно 9 цифри.",
+            icon: "error"
+        });
+        return;
+    }
 
     Email.send({
         Host: "smtp.elasticemail.com",
