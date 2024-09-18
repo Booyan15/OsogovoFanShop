@@ -295,3 +295,19 @@ footer a:hover {
     text-align: center;
     margin: 0 5px;
 }
+
+
+.clear-btn {
+    background-color: #fd2e2e; /* Change this to your preferred color */
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.clear-btn:hover {
+    background-color: #cc0000; /* Change this to your preferred hover color */
+}

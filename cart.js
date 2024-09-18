@@ -1,25 +1,27 @@
 document.addEventListener('DOMContentLoaded', () => {
     const cartItemsContainer = document.getElementById('cart-items');
     const cartSummaryContainer = document.getElementById('cart-summary');
+    const clearCartButton = document.getElementById('clear-cart-btn');
 
     function updateCart() {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    
+
         if (cart.length === 0) {
             cartItemsContainer.innerHTML = '<p>Твојата кошничка е празна.</p>';
             cartSummaryContainer.innerHTML = '';
+            clearCartButton.style.display = 'none'; // Hide the button if cart is empty
         } else {
             let total = 0;
             cartItemsContainer.innerHTML = ''; // Clear the container first
             cart.forEach((item, index) => {
                 const itemTotal = item.price * item.quantity;
                 total += itemTotal;
-    
+
                 const itemElement = document.createElement('div');
                 itemElement.className = 'cart-item';
                 itemElement.innerHTML = `
                     <div>
-                        <h2>${item.name} (Големина: ${item.size})</h2> <!-- Display size -->
+                        <h2>${item.name} (Големина: ${item.size})</h2>
                         <p>Цена: ${item.price.toFixed()} мкд</p>
                         <div class="quantity-controls">
                             <button class="quantity-btn" onclick="updateQuantity(${index}, -1)">-</button>
@@ -32,13 +34,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 `;
                 cartItemsContainer.appendChild(itemElement);
             });
-    
+
             cartSummaryContainer.innerHTML = `
                 <h2 class="total-price">Вкупно за плаќање: ${total.toFixed()} денари</h2>
             `;
+            clearCartButton.style.display = 'block'; // Show the button if cart has items
         }
     }
-    
 
     window.removeFromCart = function(index) {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -66,6 +68,14 @@ document.addEventListener('DOMContentLoaded', () => {
         alert("Ти благодарам за нарачката, сега твојата кошничка е празна.");
     };
 
+    clearCartButton.addEventListener('click', () => {
+        // Clear the cart
+        localStorage.removeItem('cart');
+        
+        // Update the cart display
+        updateCart();
+    });
+
     updateCart();
 });
 
@@ -88,7 +98,7 @@ function sendEmail() {
     cart.forEach((item, index) => {
         cartDetails += `
             <div>
-                <h2>${item.name}</h2>
+                <h2>${item.name} (Големина: ${item.size})</h2> <!-- Include size -->
                 <p>Цена: ${item.price.toFixed()} мкд</p>
                 <p>Броја: ${item.quantity}</p>
                 <p>Вкупно: ${(item.price * item.quantity).toFixed()} мкд</p>
@@ -147,6 +157,7 @@ function sendEmail() {
         }
     );
 }
+
 
 form.addEventListener("submit", function(e) {
     e.preventDefault();
