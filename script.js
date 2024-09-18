@@ -5,22 +5,32 @@ function addToCart(button) {
     const price = parseFloat(productElement.getAttribute('data-price'));
     const image = productElement.getAttribute('data-image');
 
+    let size = "УНИВЕРЗАЛНА"; // Default size for products without size selection
+
+    // Check if the product has a size selector
+    const sizeSelector = productElement.querySelector('.product-size');
+    if (sizeSelector) {
+        size = sizeSelector.value; // Get selected size if available
+    }
+
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    // Check if the item is already in the cart
-    const existingItemIndex = cart.findIndex(item => item.name === name);
+    // Check if the item is already in the cart with the same size
+    const existingItemIndex = cart.findIndex(item => item.name === name && item.size === size);
     
     if (existingItemIndex > -1) {
-        // If item exists, increase the quantity
+        // If item exists with the same size, increase the quantity
         cart[existingItemIndex].quantity += 1;
     } else {
         // If item doesn't exist, add it to the cart
-        cart.push({ name, price, quantity: 1, image });
+        cart.push({ name, price, quantity: 1, image, size });
     }
 
     localStorage.setItem('cart', JSON.stringify(cart));
     updateCartCount();
 }
+
+
 
 // Function to update the cart count
 function updateCartCount() {
