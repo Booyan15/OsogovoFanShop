@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    padding-top: 46px; /* Adjust based on the height of your header */
+    padding-top: 45px; /* Adjust based on the height of your header */
 
 }
 
@@ -16,7 +16,6 @@ header {
     align-items: center;
     justify-content: center;
     gap: 1em;
-
     /* Fix the navbar at the top */
     position: fixed;
     top: 0;
