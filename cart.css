@@ -235,6 +235,61 @@ input::placeholder {
     transition: all 0.3s ease;
 }
 
+footer {
+    background-color: #1f46a0; /* Slightly Different Blue */
+    color: #ffffff;
+    text-align: center;
+    padding: 1em 2%; /* Adjust padding for smaller screens */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box; /* Ensure padding is included in total width/height */
+}
+
+.footer-content {
+    max-width: 1000px; /* Adjust max-width to be more flexible */
+    margin: 0 auto;
+    padding: 0 1em; /* Add some padding on the sides for smaller screens */
+    box-sizing: border-box; /* Include padding in the total width */
+}
+
+footer p {
+    margin: 0;
+    font-size: 1em; /* Ensure font size is scalable */
+}
+
+footer a {
+    color: #ffcc00; /* Yellow */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Media Query for tablets and small screens */
+@media (max-width: 768px) {
+    footer {
+        padding: 1em 1%; /* Adjust padding for smaller screens */
+    }
+
+    .footer-content {
+        padding: 0; /* Remove side padding */
+    }
+}
+
+/* Media Query for mobile phones */
+@media (max-width: 480px) {
+    footer {
+        padding: 0.5em 1%; /* Even smaller padding for mobile */
+    }
+
+    footer p {
+        font-size: 0.9em; /* Slightly smaller font size for mobile */
+    }
+}
 .quantity-input {
     width: 35px;
     text-align: center;
