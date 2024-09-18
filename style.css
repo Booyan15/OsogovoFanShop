@@ -214,7 +214,7 @@ footer a:hover {
     background-image: url('img/HERO.jpg'); /* Path to your hero image */
     background-size: cover; /* Ensure the image covers the entire section */
     background-position: center; /* Center the image */
-    height:92vh; /* Hero section height - adjust as needed */
+    height:94vh; /* Hero section height - adjust as needed */
     display: flex;
     justify-content: center;
     align-items: center;
