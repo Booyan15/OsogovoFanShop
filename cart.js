@@ -98,9 +98,10 @@ function sendEmail() {
     cart.forEach((item, index) => {
         cartDetails += `
             <div>
-                <h2>${item.name} (Големина: ${item.size})</h2> <!-- Include size -->
+                <h2>${item.name}</h2> <!-- Include size -->
                 <p>Цена: ${item.price.toFixed()} мкд</p>
                 <p>Броја: ${item.quantity}</p>
+                Величина: ${item.size}
                 <p>Вкупно: ${(item.price * item.quantity).toFixed()} мкд</p>
                 <br>
             </div>
