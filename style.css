@@ -3,7 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
-    padding-top: 42px; /* Adjust based on the height of your header */
+    padding-top: 46px; /* Adjust based on the height of your header */
 
 }
 
@@ -215,7 +215,7 @@ footer a:hover {
     background-image: url('img/HERO.jpg'); /* Path to your hero image */
     background-size: cover; /* Ensure the image covers the entire section */
     background-position: center; /* Center the image */
-    height: 120vh; /* Hero section height - adjust as needed */
+    height:91vh; /* Hero section height - adjust as needed */
     display: flex;
     justify-content: center;
     align-items: center;
