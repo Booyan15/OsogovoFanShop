@@ -311,3 +311,39 @@ footer a:hover {
 .clear-btn:hover {
     background-color: #cc0000; /* Change this to your preferred hover color */
 }
+
+.city-dropdown {
+    width: 80%; /* Similar to the other inputs */
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    color: #8d8d8d;
+    background-color: #fafafa;
+    transition: border-color 0.3s ease;
+}
+
+.city-dropdown:focus {
+    outline: none;
+    border-color: #3498db;
+    background-color: #fff;
+}
+
+.city-dropdown option {
+    color: #333; /* Option text color */
+}
+
+/* Placeholder Styles */
+.city-dropdown::placeholder {
+    color: #cfcfcf;
+    font-size: 0.9rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+    .city-dropdown {
+        font-size: 1rem;
+        padding: 12px;
+        width: 100%;
+    }
+}

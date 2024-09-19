@@ -94,20 +94,24 @@ function validatePhoneNumber(number) {
 function sendEmail() {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     let cartDetails = cart.length > 0 ? '' : 'Твојата кошничка е празна.<br>';
+    let total = 0; // Initialize total price
 
     cart.forEach((item, index) => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal; // Add item total to the overall total
         cartDetails += `
             <div>
-                <h2>${item.name}</h2> <!-- Include size -->
+                <h2>${item.name}</h2>
                 <p>Цена: ${item.price.toFixed()} мкд</p>
                 <p>Броја: ${item.quantity}</p>
                 Величина: ${item.size}
-                <p>Вкупно: ${(item.price * item.quantity).toFixed()} мкд</p>
+                <p>Вкупно: ${itemTotal.toFixed()} мкд</p>
                 <br>
             </div>
         `;
     });
 
+    // Add total price at the bottom of the email
     const bodyMessage = `
         Име и презиме: ${fullName.value}<br>
         Телефонски број: ${phone.value}<br>
@@ -116,9 +120,10 @@ function sendEmail() {
         <br>
         <h3>Детали за нарачка:</h3>
         ${cartDetails}
+        <br>
+        <h2 class="total-price">Вкупно за плаќање: ${total.toFixed()} денари</h2> <!-- Total price added here -->
     `;
 
-    // Validate phone number before sending
     if (!validatePhoneNumber(phone.value)) {
         Swal.fire({
             title: "Грешка",
@@ -158,6 +163,7 @@ function sendEmail() {
         }
     );
 }
+
 
 
 form.addEventListener("submit", function(e) {
