@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('order-arrived-form');
     const nameInput = document.getElementById("name");
     const surnameInput = document.getElementById("surname");
-    const addressInput = document.getElementById("address");
     const phoneInput = document.getElementById("phone");
 
     form.addEventListener('submit', function(e) {
@@ -11,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
         // Get the form data
         const name = nameInput.value;
         const surname = surnameInput.value;
-        const address = addressInput.value;
         const phone = phoneInput.value;
 
         // Validate phone number
@@ -29,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
             <h2>Податоци за испорака:</h2>
             <p>Име: ${name}</p>
             <p>Презиме: ${surname}</p>
-            <p>Адреса за испорака: ${address}</p>
             <p>Телефон: ${phone}</p>
         `;
 
