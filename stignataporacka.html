@@ -3,103 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order Confirmation - Product Arrived</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Нарачка Пристигната</title>
+    <link rel="stylesheet" href="order-arrived.css">
 </head>
 <body>
     <header>
-        <img src="img/logo.png" alt="Company Logo" class="logo">
-        <a href="index.html" class="home-link">Back to Shop</a>
+        <h1>Нарачката е пристигната</h1>
     </header>
 
-    <section class="confirmation-section">
-        <div class="confirmation-message">
-            <h1>Вашата нарачка е пристигната!</h1>
-            <p>Ви благодариме што купувате од официјалниот фан шоп на ФК Осогово. Вашиот производ е успешно доставен.</p>
-            <img src="img/thankyou.png" alt="Thank You" class="thank-you-image">
-            <a href="index.html" class="continue-shopping-btn">Продолжете со купување</a>
-        </div>
-    </section>
+    <main>
+        <section>
+            <h2>Внеси податоци за испорака</h2>
+            <form id="order-arrived-form">
+                <div class="input-group">
+                    <label for="name">Име:</label>
+                    <input type="text" id="name" name="name" placeholder="Твоето име" required>
+                </div>
+                <div class="input-group">
+                    <label for="surname">Презиме:</label>
+                    <input type="text" id="surname" name="surname" placeholder="Твоето презиме" required>
+                </div>
+                <div class="input-group">
+                    <label for="address">Адреса:</label>
+                    <input type="text" id="address" name="address" placeholder="Твојата адреса за испорака" required>
+                </div>
+                <button type="submit" class="submit-btn">Испрати податоци</button>
+            </form>
+        </section>
+    </main>
 
     <footer>
-        <p>&copy; 2024 ФК Осогово. Сите права се задржани.</p>
+        <p>Изработено од <a href="https://www.instagram.com/popovski_15/" target="_blank">Бојан Поповски</a> &copy; 2024</p>
     </footer>
 
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
-
-        header {
-            background-color: #ffcc00;
-            padding: 15px;
-            text-align: center;
-        }
-
-        .logo {
-            width: 150px;
-        }
-
-        .home-link {
-            text-decoration: none;
-            color: #000;
-            font-weight: bold;
-            margin-left: 20px;
-        }
-
-        .confirmation-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 70vh;
-            text-align: center;
-        }
-
-        .confirmation-message {
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .confirmation-message h1 {
-            color: #2c3e50;
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        .confirmation-message p {
-            font-size: 18px;
-            color: #7f8c8d;
-            margin-bottom: 30px;
-        }
-
-        .thank-you-image {
-            width: 200px;
-            margin-bottom: 20px;
-        }
-
-        .continue-shopping-btn {
-            text-decoration: none;
-            background-color: #ffcc00;
-            color: black;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: bold;
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            background-color: #2c3e50;
-            color: white;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+    <script src="order-arrived.js"></script>
 </body>
 </html>
