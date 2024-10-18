@@ -4,37 +4,186 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Нарачка Пристигната</title>
-    <link rel="stylesheet" href="order-arrived.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            padding-top: 42px; /* Adjust based on the height of your header */
+        }
+
+        header {
+            background-color: #ffcc00; /* Yellow */
+            color: #0077ff;
+            padding: 1em;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1em;
+
+            /* Fix the navbar at the top */
+            position: fixed;
+            top: 0;
+            width: 100%; /* Ensure it stretches across the screen */
+            z-index: 1000; /* High z-index to stay above other elements */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: add a shadow for visual separation */
+        }
+
+        h1, h2 {
+            margin: 0;
+            color: #0044cc; /* Dark Blue */
+        }
+
+        main {
+            max-width: 800px;
+            margin: 80px auto 0; /* Space for fixed header */
+            padding: 1em;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        section {
+            padding: 1em 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5em;
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        input[type="text"] {
+            padding: 0.8em;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            font-size: 1em;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
+
+        input[type="text"]:focus {
+            border-color: #0077ff;
+            outline: none;
+        }
+
+        .submit-btn {
+            background-color: #ffcc00; /* Yellow */
+            border: none;
+            color: #0033aa; /* Blue */
+            padding: 0.8em 1.5em;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.2em;
+            text-align: center;
+            transition: background-color 0.3s ease;
+            width: 100%; /* Full width button */
+        }
+
+        .submit-btn:hover {
+            background-color: #e6b800; /* Darker Yellow */
+        }
+
+        footer {
+            background-color: #1f46a0; /* Slightly Different Blue */
+            color: #ffffff;
+            text-align: center;
+            padding: 1em 2%; /* Adjust padding for smaller screens */
+            position: relative;
+            width: 100%;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+            box-sizing: border-box; /* Ensure padding is included in total width/height */
+            margin-top: 30px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1em; /* Ensure font size is scalable */
+        }
+
+        footer a {
+            color: #ffcc00; /* Yellow */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            main {
+                padding: 0.8em;
+            }
+
+            h1, h2 {
+                font-size: 1.5em;
+            }
+
+            .submit-btn {
+                font-size: 1em;
+                padding: 0.7em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1, h2 {
+                font-size: 1.2em;
+            }
+
+            .submit-btn {
+                font-size: 0.9em;
+                padding: 0.5em 1em;
+            }
+        }
+    </style>
 </head>
 <body>
+
     <header>
         <h1>Нарачката е пристигната</h1>
     </header>
 
-<div class="form-container">
-    <form class="order-form">
-        <div class="form-group">
-            <label for="name">Name:</label>
-            <input type="text" id="name" class="form-input" required>
-        </div>
-        <div class="form-group">
-            <label for="surname">Surname:</label>
-            <input type="text" id="surname" class="form-input" required>
-        </div>
-        <div class="form-group">
-            <label for="address">Address:</label>
-            <textarea id="address" class="form-input" rows="3" required></textarea>
-        </div>
-        <button type="submit" class="submit-button">Submit</button>
-    </form>
-</div>
-
+    <main>
+        <section>
+            <h2>Внеси податоци за испорака</h2>
+            <form id="order-arrived-form">
+                <div class="input-group">
+                    <label for="name">Име:</label>
+                    <input type="text" id="name" name="name" placeholder="Твоето име" required>
+                </div>
+                <div class="input-group">
+                    <label for="surname">Презиме:</label>
+                    <input type="text" id="surname" name="surname" placeholder="Твоето презиме" required>
+                </div>
+                <div class="input-group">
+                    <label for="address">Адреса:</label>
+                    <input type="text" id="address" name="address" placeholder="Твојата адреса за испорака" required>
+                </div>
+                <button type="submit" class="submit-btn">Испрати податоци</button>
+            </form>
+        </section>
+    </main>
 
     <footer>
         <p>Изработено од <a href="https://www.instagram.com/popovski_15/" target="_blank">Бојан Поповски</a> &copy; 2024</p>
     </footer>
 
     <script src="https://smtpjs.com/v3/smtp.js"></script>
-    <script src="arrived.js"></script>
+    <script src="order-arrived.js"></script>
 </body>
 </html>
