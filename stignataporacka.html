@@ -5,15 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Нарачка Пристигната</title>
     <style>
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
-
         body {
-            display: flex;
-            flex-direction: column;
             font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
             background-color: #f4f4f4;
             padding-top: 42px; /* Adjust based on the height of your header */
         }
@@ -42,7 +37,6 @@
         }
 
         main {
-            flex: 1; /* Allow main to grow and push footer down */
             max-width: 800px;
             margin: 80px auto 0; /* Space for fixed header */
             padding: 1em;
@@ -181,7 +175,6 @@
                     <input type="text" id="address" name="address" placeholder="Твојата адреса за испорака" required>
                 </div>
                 <button type="submit" class="submit-btn">Испрати податоци</button>
-                <button id="back-to-shop" class="submit-btn" onclick="window.location.href='shop.html'">Назад на продавница</button>
             </form>
         </section>
     </main>
