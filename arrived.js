@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nameInput = document.getElementById("name");
     const surnameInput = document.getElementById("surname");
     const addressInput = document.getElementById("address");
+    const phoneInput = document.getElementById("phone");
 
     form.addEventListener('submit', function(e) {
         e.preventDefault(); // Prevent form from refreshing the page
@@ -11,6 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const name = nameInput.value;
         const surname = surnameInput.value;
         const address = addressInput.value;
+        const phone = phoneInput.value;
+
+        // Validate phone number
+        if (phone.length !== 9 || isNaN(phone)) {
+            Swal.fire({
+                title: "Грешка",
+                text: "Телефонот мора да содржи 9 цифри.",
+                icon: "error"
+            });
+            return; // Stop the function if validation fails
+        }
 
         // Construct the email body
         const bodyMessage = `
@@ -18,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <p>Име: ${name}</p>
             <p>Презиме: ${surname}</p>
             <p>Адреса за испорака: ${address}</p>
+            <p>Телефон: ${phone}</p>
         `;
 
         console.log("Sending email..."); // Debugging line
