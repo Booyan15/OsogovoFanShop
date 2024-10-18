@@ -11,9 +11,7 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            display: flex; /* Set the body to be a flex container */
-            flex-direction: column; /* Stack elements vertically */
-            min-height: 100vh; /* Make sure it takes at least full height of viewport */
+            padding-top: 42px; /* Adjust based on the height of your header */
         }
 
         header {
@@ -25,6 +23,8 @@
             align-items: center;
             justify-content: center;
             gap: 1em;
+
+            /* Fix the navbar at the top */
             position: fixed;
             top: 0;
             width: 100%; /* Ensure it stretches across the screen */
@@ -44,7 +44,6 @@
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            flex: 1; /* Allow main to grow and push footer down */
         }
 
         section {
@@ -104,10 +103,11 @@
             color: #ffffff;
             text-align: center;
             padding: 1em 2%; /* Adjust padding for smaller screens */
+            position: relative;
             width: 100%;
             box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
             box-sizing: border-box; /* Ensure padding is included in total width/height */
-            margin-top: auto; /* Push footer to the bottom */
+            margin-top: 30px;
         }
 
         footer p {
