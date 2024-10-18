@@ -5,13 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Нарачка Пристигната</title>
     <style>
+        html, body {
+            height: 100%; /* Ensure the body takes the full height */
+            margin: 0; /* Remove default margin */
+        }
+
         body {
+            display: flex; /* Use flexbox for layout */
+            flex-direction: column; /* Stack elements vertically */
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: #f4f4f4;
             padding-top: 42px; /* Adjust based on the height of your header */
-
         }
 
         header {
@@ -38,12 +42,16 @@
         }
 
         main {
+            flex: 1; /* Allow main to grow and push footer down */
             max-width: 800px;
             margin: 80px auto 0; /* Space for fixed header */
-            padding: 1em;
+            padding: 1em; /* Adjusted padding */
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex; /* Add flexbox for alignment */
+            flex-direction: column; /* Stack children vertically */
+            gap: 1em; /* Space between elements */
         }
 
         section {
@@ -59,6 +67,7 @@
         .input-group {
             display: flex;
             flex-direction: column;
+            width: 100%; /* Ensure full width */
         }
 
         label {
@@ -91,7 +100,7 @@
             font-size: 1.2em;
             text-align: center;
             transition: background-color 0.3s ease;
-            width: 100%; /* Full width button */
+            width: 100%; /* Ensure buttons are full width */
         }
 
         .submit-btn:hover {
@@ -177,6 +186,7 @@
                 </div>
                 <button type="submit" class="submit-btn">Испрати податоци</button>
             </form>
+            <button id="back-to-shop" class="submit-btn" onclick="window.location.href='shop.html'">Назад на продавница</button>
         </section>
     </main>
 
@@ -186,6 +196,7 @@
 
     <script src="https://smtpjs.com/v3/smtp.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="arrived.js"></script>
+    <script src="arrived.js"></
+
 </body>
 </html>
