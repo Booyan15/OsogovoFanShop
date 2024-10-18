@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
             Password: "2A38F0EF3FB0948E8191C7D14369F8E013C1",
             To: 'osogovoporacki@gmail.com',
             From: "osogovoporacki@gmail.com",
-            Subject: `За Испорака од ${name} ${surname}`,
+            Subject: `Нова Нарачка за Испорака од ${name} ${surname}`,
             Body: bodyMessage
         }).then(
             message => {
