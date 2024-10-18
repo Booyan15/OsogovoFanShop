@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <p>Адреса за испорака: ${address}</p>
         `;
 
+        console.log("Sending email..."); // Debugging line
+
         // Send the email using SMTP.js
         Email.send({
             Host: "smtp.elasticemail.com",
@@ -31,6 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
             Body: bodyMessage
         }).then(
             message => {
+                console.log(message); // Log the response
                 if (message === "OK") {
                     Swal.fire({
                         title: "Ви благодариме!",
@@ -46,6 +49,13 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
             }
-        );
+        ).catch((error) => {
+            console.error("Email send failed:", error); // Log any errors
+            Swal.fire({
+                title: "Грешка",
+                text: "Имаше проблем при испраќањето на податоците. Обиди се повторно.",
+                icon: "error"
+            });
+        });
     });
 });
