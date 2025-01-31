@@ -9,17 +9,17 @@ document.addEventListener('DOMContentLoaded', () => {
         if (cart.length === 0) {
             cartItemsContainer.innerHTML = '<p>Твојата кошничка е празна.</p>';
             cartSummaryContainer.innerHTML = '';
-            clearCartButton.style.display = 'none';
+            clearCartButton.style.display = 'none'; // Hide the button if cart is empty
         } else {
             let total = 0;
-            cartItemsContainer.innerHTML = '';
+            cartItemsContainer.innerHTML = ''; // Clear the container first
             cart.forEach((item, index) => {
                 const itemTotal = item.price * item.quantity;
                 total += itemTotal;
 
                 const itemElement = document.createElement('div');
                 itemElement.className = 'cart-item';
-                itemElement.innerHTML = `
+                itemElement.innerHTML = 
                     <div>
                         <h2>${item.name} (Големина: ${item.size})</h2>
                         <p>Цена: ${item.price.toFixed()} мкд</p>
@@ -31,20 +31,20 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p>Вкупно: ${itemTotal.toFixed()} мкд</p>
                     </div>
                     <button class="remove-btn" onclick="removeFromCart(${index})">Избриши</button>
-                `;
+                ;
                 cartItemsContainer.appendChild(itemElement);
             });
 
-            cartSummaryContainer.innerHTML = `
+            cartSummaryContainer.innerHTML = 
                 <h2 class="total-price">Вкупно за плаќање: ${total.toFixed()} денари</h2>
-            `;
-            clearCartButton.style.display = 'block';
+            ;
+            clearCartButton.style.display = 'block'; // Show the button if cart has items
         }
     }
 
     window.removeFromCart = function(index) {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart.splice(index, 1);
+        cart.splice(index, 1); // Remove item at index
         localStorage.setItem('cart', JSON.stringify(cart));
         updateCart();
     };
@@ -52,47 +52,61 @@ document.addEventListener('DOMContentLoaded', () => {
     window.updateQuantity = function(index, change) {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
         let item = cart[index];
-        item.quantity = Math.max(1, item.quantity + change);
+        item.quantity = Math.max(1, item.quantity + change); // Ensure quantity is at least 1
         localStorage.setItem('cart', JSON.stringify(cart));
         updateCart();
     };
 
     window.proceedToCheckout = function() {
+        // Clear the cart
         localStorage.removeItem('cart');
+        
+        // Update the cart display
         updateCart();
+        
+        // Optionally redirect to a confirmation or checkout page
         alert("Ти благодарам за нарачката, сега твојата кошничка е празна.");
     };
 
     clearCartButton.addEventListener('click', () => {
+        // Clear the cart
         localStorage.removeItem('cart');
+        
+        // Update the cart display
         updateCart();
     });
 
     updateCart();
 });
 
-// Form Elements
 const form = document.getElementById('checkout-form');
 const fullName = document.getElementById("name");
 const phone = document.getElementById("phone");
 const email = document.getElementById("email");
 const city = document.getElementById("city");
 
-// Phone Number Validation
 function validatePhoneNumber(number) {
-    const cleanedNumber = number.replace(/\D/g, ''); // Remove non-numeric characters
-    return /^\d{9}$/.test(cleanedNumber); // Check if exactly 9 digits
+    // Remove all non-digit characters
+    const cleanedNumber = number.replace(/\D/g, '');
+
+    // Ensure it contains exactly 9 digits
+    if (cleanedNumber.length !== 9) {
+        return false;
+    }
+
+    return true;
 }
+
 
 function sendEmail() {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     let cartDetails = cart.length > 0 ? '' : 'Твојата кошничка е празна.<br>';
-    let total = 0;
+    let total = 0; // Initialize total price
 
     cart.forEach((item, index) => {
         const itemTotal = item.price * item.quantity;
-        total += itemTotal;
-        cartDetails += `
+        total += itemTotal; // Add item total to the overall total
+        cartDetails += 
             <div>
                 <h2>${item.name}</h2>
                 <p>Цена: ${item.price.toFixed()} мкд</p>
@@ -101,26 +115,26 @@ function sendEmail() {
                 <p>Вкупно: ${itemTotal.toFixed()} мкд</p>
                 <br>
             </div>
-        `;
+        ;
     });
 
-    const bodyMessage = `
+    // Add total price at the bottom of the email
+    const bodyMessage = 
         Име и презиме: ${fullName.value}<br>
-        Телефонски број: ${phone.value.trim()}<br>
+        Телефонски број: ${phone.value}<br>
         Email: ${email.value}<br>
         Град: ${city.value}<br>
         <br>
         <h3>Детали за нарачка:</h3>
         ${cartDetails}
         <br>
-        <h2 class="total-price">Вкупно за плаќање: ${total.toFixed()} денари</h2>
-    `;
+        <h2 class="total-price">Вкупно за плаќање: ${total.toFixed()} денари</h2> <!-- Total price added here -->
+    ;
 
-    // Validate phone number before sending email
-    if (!validatePhoneNumber(phone.value.trim())) {
+    if (!validatePhoneNumber(phone.value)) {
         Swal.fire({
             title: "Грешка",
-            text: "Телефонскиот број мора да содржи точно 9 цифри (без букви и празни места).",
+            text: "Телефонскиот број мора да содржи точно 9 цифри.",
             icon: "error"
         });
         return;
@@ -132,7 +146,7 @@ function sendEmail() {
         Password: "2A38F0EF3FB0948E8191C7D14369F8E013C1",
         To: 'osogovoporacki@gmail.com',
         From: "osogovoporacki@gmail.com",
-        Subject: `Нарачка од ${fullName.value}`,
+        Subject: Нарачка од ${fullName.value},
         Body: bodyMessage
     }).then(
         message => {
@@ -149,7 +163,7 @@ function sendEmail() {
             } else {
                 Swal.fire({
                     title: "Грешка",
-                    text: "Имаше проблем, порачката не беше успешна. Обиди се повторно.",
+                    text: "Имаше проблем порачката е неуспешна. Обиди се повторно.",
                     icon: "error"
                 });
             }
@@ -157,7 +171,8 @@ function sendEmail() {
     );
 }
 
-// Form Submit Event
+
+
 form.addEventListener("submit", function(e) {
     e.preventDefault();
     sendEmail();
