@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                 const itemElement = document.createElement('div');
                 itemElement.className = 'cart-item';
-                itemElement.innerHTML = 
+                itemElement.innerHTML = `
                     <div>
                         <h2>${item.name} (Големина: ${item.size})</h2>
                         <p>Цена: ${item.price.toFixed()} мкд</p>
@@ -31,13 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
                         <p>Вкупно: ${itemTotal.toFixed()} мкд</p>
                     </div>
                     <button class="remove-btn" onclick="removeFromCart(${index})">Избриши</button>
-                ;
+                `;
                 cartItemsContainer.appendChild(itemElement);
             });
 
-            cartSummaryContainer.innerHTML = 
+            cartSummaryContainer.innerHTML = `
                 <h2 class="total-price">Вкупно за плаќање: ${total.toFixed()} денари</h2>
-            ;
+            `;
             clearCartButton.style.display = 'block'; // Show the button if cart has items
         }
     }
@@ -99,7 +99,7 @@ function sendEmail() {
     cart.forEach((item, index) => {
         const itemTotal = item.price * item.quantity;
         total += itemTotal; // Add item total to the overall total
-        cartDetails += 
+        cartDetails += `
             <div>
                 <h2>${item.name}</h2>
                 <p>Цена: ${item.price.toFixed()} мкд</p>
@@ -108,11 +108,11 @@ function sendEmail() {
                 <p>Вкупно: ${itemTotal.toFixed()} мкд</p>
                 <br>
             </div>
-        ;
+        `;
     });
 
     // Add total price at the bottom of the email
-    const bodyMessage = 
+    const bodyMessage = `
         Име и презиме: ${fullName.value}<br>
         Телефонски број: ${phone.value}<br>
         Email: ${email.value}<br>
@@ -122,7 +122,7 @@ function sendEmail() {
         ${cartDetails}
         <br>
         <h2 class="total-price">Вкупно за плаќање: ${total.toFixed()} денари</h2> <!-- Total price added here -->
-    ;
+    `;
 
     if (!validatePhoneNumber(phone.value)) {
         Swal.fire({
@@ -139,7 +139,7 @@ function sendEmail() {
         Password: "2A38F0EF3FB0948E8191C7D14369F8E013C1",
         To: 'osogovoporacki@gmail.com',
         From: "osogovoporacki@gmail.com",
-        Subject: Нарачка од ${fullName.value},
+        Subject: `Нарачка од ${fullName.value}`,
         Body: bodyMessage
     }).then(
         message => {
