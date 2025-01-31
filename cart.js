@@ -136,14 +136,14 @@ function sendEmail() {
     Email.send({
         Host: "smtp.elasticemail.com",
         Username: "osogovoporacki@gmail.com",
-        Password: "26EB34146F85A3F4950EDE271A06B7527AC6",
+        Password: "827C010309206997F903C3FB4CAF32C34CF0",
         To: 'osogovoporacki@gmail.com',
         From: "osogovoporacki@gmail.com",
         Subject: `Нарачка од ${fullName.value}`,
         Body: bodyMessage
     }).then(
         message => {
-            if (message === "OK") {
+            if (message == "OK") {
                 Swal.fire({
                     title: "Ви благодариме",
                     text: "Успешно е направена порачката",
