@@ -86,17 +86,10 @@ const email = document.getElementById("email");
 const city = document.getElementById("city");
 
 function validatePhoneNumber(number) {
-    // Remove all non-digit characters
-    const cleanedNumber = number.replace(/\D/g, '');
-
-    // Ensure it contains exactly 9 digits
-    if (cleanedNumber.length !== 9) {
-        return false;
-    }
-
-    return true;
+    // This regular expression checks for a 9-digit number
+    const phonePattern = /^\d{9}$/;
+    return phonePattern.test(number);
 }
-
 
 function sendEmail() {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
